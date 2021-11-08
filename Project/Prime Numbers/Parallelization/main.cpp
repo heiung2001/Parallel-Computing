@@ -28,14 +28,14 @@ int main()
     res = SerialResult(pEratosthenes, N, Size);
     end = GetTime();
     duration = end - start;
-    printf("\nIn serial: %d primes was found in time of %f(s)\n", res, duration);
+    printf("\nIn serialism: %d primes was found.\tTime of execution: %f(s)\n", res, duration);
 
     start = GetTime();
     res = ParallelResult(pEratosthenes, N, Size, 1);
     end = GetTime();
     duration = end - start;
 
-    printf("\nIn parallel: %d primes was found in time of %f(s)\n", res, duration);
+    printf("\nIn parallelism: %d primes was found.\tTime of execution: %f(s)\n", res, duration);
     
     ProcessTermination(pEratosthenes);
     return 0;
