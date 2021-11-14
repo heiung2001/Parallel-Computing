@@ -20,6 +20,8 @@ $RECYCLE.BIN/
 *.msix
 *.msm
 *.msp
+*.exe
+*.json
 
 # Windows shortcuts
 *.lnk
@@ -31,3 +33,14 @@ Report/Report.out
 Report/Report.synctex.gz
 Report/Report.toc
 Project/Prime Numbers/.vscode/tasks.json
+Project/Prime Numbers/.vscode/launch.json
+Project/PI/.vscode/tasks.json
+Project/PI/.vscode/launch.json
+Project/Matrix Multiplication/Parallel/.vscode/tasks.json
+Project/Matrix Multiplication/Parallel/.vscode/launch.json
+Project/Fibonacci/.vscode/tasks.json
+Project/Fibonacci/.vscode/launch.json
+Introduction to OpenMP/.vscode/tasks.json
+Introduction to OpenMP/.vscode/launch.json
+Exs/Week 6/.vscode/tasks.json
+Exs/Week 6/.vscode/launch.json
