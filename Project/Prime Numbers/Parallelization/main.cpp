@@ -15,6 +15,8 @@ void ProcessTermination(char* &pEratos);
 int SerialResult(char* pEratos, int n, int Size);
 int ParallelResult(char* pEratos, int n, int Size, bool useOpenMP);
 
+void Test(int n, int Size);
+
 int main()
 {
     int N = 0, Size = 0;
@@ -36,6 +38,8 @@ int main()
     duration = end - start;
 
     printf("\nIn parallelism: %d primes was found.\tTime of execution: %f(s)\n", res, duration);
+
+    Test(N, Size);
     
     ProcessTermination(pEratosthenes);
     return 0;
@@ -123,4 +127,36 @@ int ParallelResult(char* pEratos, int n, int Size, bool useOpenMP)
         }
     
     return number_of_primes;
+}
+
+void Test(int n, int Size)
+{
+    char* p1 = new char[Size+1];
+    char* p2 = new char[Size+1];
+    bool flag;
+    memset(p1, 1, Size+1);
+    memset(p2, 1, Size+1);
+
+    SerialResult(p1, n, Size);
+    ParallelResult(p2, n, Size, 1);
+
+    for (int i = 0; i < Size; i++) {
+        if (p1[i] == p2[i]) {
+            flag = 1;
+        }
+        else {
+            flag = 0;
+            break;
+        }
+    }
+
+    if (flag == 1) {
+        printf("True!");
+    }
+    else {
+        printf("False!");
+    }
+
+    delete [] p1;
+    delete [] p2;
 }
