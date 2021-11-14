@@ -23,3 +23,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Report/Report.aux
+Report/Report.bbl
+Report/Report.blg
+Report/Report.log
+Report/Report.out
+Report/Report.synctex.gz
+Report/Report.toc
