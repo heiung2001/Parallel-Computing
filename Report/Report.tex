@@ -60,6 +60,15 @@ Trong thời đại của cuộc cách mạng công nghệ số, tốc độ là
 \vskip 1cm
 Đáp ứng nhu cầu đó, học phần Tính toán song song đã được thêm vào trong các chương trình học tập của nhiều trường Đại học. Trong bài báo cáo này, em xin trình bày một số bài toán "nhập môn" dựa theo phương pháp song song với bộ nhớ chia sẻ và thư viện OpenMP trên C/C++.
 
+\chapter*{Giới thiệu chung}
+\addcontentsline{toc}{chapter}{{\bf  Giới thiệu chung}\rm}
+{\bf Phần cứng máy tính: }
+\begin{itemize}
+	\item CPU Core i7-4900(4910) MQ (4 nhân, 8 luồng)
+	\item Các chương trình được viết bằng ngôn ngữ C/C++ và OpenMP
+	\item Sử dụng hệ điều hành Window 10 và Linux(Ubuntu) chạy trên máy ảo VMware.
+	\item Code được viết và build trên Visual Studio Code.
+\end{itemize}
 
 \tableofcontents	                        % Lệnh mục lục
 
@@ -68,17 +77,19 @@ Trong thời đại của cuộc cách mạng công nghệ số, tốc độ là
 \pagenumbering{arabic}                      % Đánh lại trang
 \section{Thuật toán tuần tự}
 \begin{center}
-    \includegraphics[trim=0in 48in 0in 0in, clip, scale=0.2]{./Photos/MatMul/serial.PNG}\clearpage
-    \includegraphics[trim=0in 3in 0in 30in, clip, scale=0.2]{./Photos/MatMul/serial.PNG}\clearpage
-    \includegraphics[trim=0in 0in 0in 70in, clip, scale=0.2]{./Photos/MatMul/serial.PNG}
+    \includegraphics[trim=0in 52in 0in 0in, clip, scale=0.25]{./Photos/MatMul/serial.PNG}\clearpage
+    \includegraphics[trim=0in 16in 0in 25in, clip, scale=0.25]{./Photos/MatMul/serial.PNG}\clearpage
+    \includegraphics[trim=0in 0in 0in 61in, clip, scale=0.25]{./Photos/MatMul/serial.PNG}
 \end{center}
 \section{Thuật toán song song}
 \begin{center}
-	\includegraphics[trim=0in 68in 0in 0in, clip, scale=0.2]{./Photos/MatMul/parallel.PNG}
+	\includegraphics[trim=0in 85in 0in 0in, clip, scale=0.25]{./Photos/MatMul/parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 25in 0in 33in, clip, scale=0.2]{./Photos/MatMul/parallel.PNG}
+	\includegraphics[trim=0in 49.5in 0in 16.5in, clip, scale=0.25]{./Photos/MatMul/parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 76in, clip, scale=0.2]{./Photos/MatMul/parallel.PNG}
+	\includegraphics[trim=0in 15in 0in 52in, clip, scale=0.25]{./Photos/MatMul/parallel.PNG}
+\clearpage
+	\includegraphics[trim=0in 0in 0in 86.5in, clip, scale=0.25]{./Photos/MatMul/parallel.PNG}
 \end{center}
 \section{Đánh giá}
 \begin{center}
@@ -88,17 +99,17 @@ Trong thời đại của cuộc cách mạng công nghệ số, tốc độ là
 \chapter{Tìm số nguyên tố}
 \section{Thuật toán tuần tự}
 \begin{center}
-	\includegraphics[trim=0in 15in 0in 0in, clip, scale=0.2]{./Photos/Primes/Serial.PNG}
+	\includegraphics[trim=0in 27in 0in 0in, clip, scale=0.35]{./Photos/Primes/Serial.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 28in, clip, scale=0.2]{./Photos/Primes/Serial.PNG}
+	\includegraphics[trim=0in 1.5in 0in 16.5in, clip, scale=0.35]{./Photos/Primes/Serial.PNG}
 \end{center}
 \section{Thuật toán song song}
 \begin{center}
-	\includegraphics[trim=0in 68in 0in 0in, clip, scale=0.2]{./Photos/Primes/Parallel.PNG}
+	\includegraphics[trim=0in 57.75in 0in 0in, clip, scale=0.25]{./Photos/Primes/Parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 23in 0in 23in, clip, scale=0.2]{./Photos/Primes/Parallel.PNG}
+	\includegraphics[trim=0in 22.3in 0in 33.25in, clip, scale=0.25]{./Photos/Primes/Parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 68in, clip, scale=0.2]{./Photos/Primes/Parallel.PNG}
+	\includegraphics[trim=0in 0in 0in 68.55in, clip, scale=0.25]{./Photos/Primes/Parallel.PNG}
 \end{center}
 \section{Đánh giá}
 \begin{center}
@@ -108,13 +119,17 @@ Trong thời đại của cuộc cách mạng công nghệ số, tốc độ là
 \chapter{Tính số Fibonacci}
 \section{Thuật toán tuần tự}
 \begin{center}
-	\includegraphics[trim=0in 0in 0in 0in, clip, scale=0.2]{./Photos/Fibonacci/Serial.PNG}
+	\includegraphics[trim=0in 12in 0in 0in, clip, scale=0.35]{./Photos/Fibonacci/Serial.PNG}
+\clearpage
+	\includegraphics[trim=0in 0in 0in 16.5in, clip, scale=0.35]{./Photos/Fibonacci/Serial.PNG}
 \end{center}
 \section{Thuật toán song song}
 \begin{center}
-	\includegraphics[trim=0in 20in 0in 0in, clip, scale=0.2]{./Photos/Fibonacci/Parallel.PNG}
+	\includegraphics[trim=0in 45in 0in 0in, clip, scale=0.25]{./Photos/Fibonacci/Parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 39in, clip, scale=0.2]{./Photos/Fibonacci/Parallel.PNG}
+	\includegraphics[trim=0in 9.75in 0in 14.25in, clip, scale=0.25]{./Photos/Fibonacci/Parallel.PNG}
+\clearpage
+	\includegraphics[trim=0in 0in 0in 49.75in, clip, scale=0.25]{./Photos/Fibonacci/Parallel.PNG}
 \end{center}
 \section{Đánh giá}
 \begin{center}
@@ -125,15 +140,15 @@ Trong thời đại của cuộc cách mạng công nghệ số, tốc độ là
 \chapter{Tính số PI}
 \section{Thuật toán tuần tự}
 \begin{center}
-	\includegraphics[trim=0in 8in 0in 0in, clip, scale=0.2]{./Photos/PI/serial.PNG}
+	\includegraphics[trim=0in 13in 0in 0in, clip, scale=0.25]{./Photos/PI/serial.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 29in, clip, scale=0.2]{./Photos/PI/serial.PNG}
+	\includegraphics[trim=0in 0in 0in 24.5in, clip, scale=0.25]{./Photos/PI/serial.PNG}
 \end{center}
 \section{Thuật toán song song}
 \begin{center}
-	\includegraphics[trim=0in 20in 0in 0in, clip, scale=0.2]{./Photos/PI/parallel.PNG}
+	\includegraphics[trim=0in 33in 0in 0in, clip, scale=0.25]{./Photos/PI/parallel.PNG}
 \clearpage
-	\includegraphics[trim=0in 0in 0in 32.2in, clip, scale=0.2]{./Photos/PI/parallel.PNG}
+	\includegraphics[trim=0in 0in 0in 19.75in, clip, scale=0.25]{./Photos/PI/parallel.PNG}
 \end{center}
 \section{Đánh giá}
 \subsection{Trên Windows}
