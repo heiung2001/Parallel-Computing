@@ -1,3 +1,7 @@
+/*
+    Problem 1: Find Min-Max of 1D Array
+*/
+
 #include <stdio.h>
 #include <omp.h>
 #include <time.h>
