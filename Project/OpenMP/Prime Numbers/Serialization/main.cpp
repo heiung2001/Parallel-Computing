@@ -65,7 +65,7 @@ int SerialResult(char* pEratos, int n, int Size)
         }
     }
 
-    for (i = 1; i < Size; i++)
+    for (i = 1; i <= Size; i++)
     {
         number_of_primes += pEratos[i];
     }
