@@ -30,17 +30,18 @@ namespace IntegralCalculator
             {
                 App.Threads.Add(new IntegralCal(Math.Cos, i*step, (i+1)*step)); // CHANGE function in here!
             }
-
+            
+            Console.WriteLine("\n<Login the Alchemi Grid>")
             GConnection gconn   = GConnection.FromConsole("locahost", "9000", "user", "user");
             App.ApplicationName = "Integral Approximation - Alchemi";
             App.Connection      = gconn;
 
             App.Manifest.Add(new ModuleDependency(typeof(IntegralCal).Module));
-            App.ThreadFinish += App_ThreadFinish;
+            App.ThreadFinish      += App_ThreadFinish;
             App.ApplicationFinish += new GApplicationFinish(App_ApplicationFinish);
 
             startTime = DateTime.Now;
-            Console.WriteLine("Thread Started!");
+            Console.WriteLine("<Thread Started!>");
             App.Start();
             Console.ReadLine();
         }
