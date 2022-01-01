@@ -436,3 +436,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+/Peter Pacheco - An Introduction to Parallel Programming-Morgan Kaufmann (2011).pdf
