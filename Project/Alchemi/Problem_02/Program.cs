@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Alchemi.Core;
@@ -12,16 +13,18 @@ namespace Problem_02
         static public List<List<int>> Matrix = new List<List<int>>();
         static public DateTime startTime;
 
-        static public void DisplayMatrix()
+        static public void PrintMatrix()
         {
-            // Console.WriteLine("Do you wanna print out the matrix? (Y/N): ");
-            for (int i = 0; i < Matrix.Count; i++)
+            using (TextWriter tw = new StreamWriter(@"..\..\matrix.txt"))
             {
-                for (int j = 0; j < Matrix[0].Count; j++)
+                for (int i = 0; i < Matrix.Count; i++)
                 {
-                    Console.Write(Matrix[i][j]);
+                    for (int j = 0; j < Matrix[0].Count; j++)
+                    {
+                        tw.Write(Matrix[i][j] + " ");
+                    }
+                    tw.WriteLine();
                 }
-                Console.Write("\n");
             }
         }
 
@@ -48,7 +51,7 @@ namespace Problem_02
                 }
                 Matrix.Add(temp);
             }
-            // DisplayMatrix();
+            PrintMatrix();
 
             var clusters = m / k;
             for (int i = 0; i < clusters; i++)
