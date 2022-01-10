@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Alchemi.Core;
 using Alchemi.Core.Utility;
 using Alchemi.Core.Owner;
+using Swensen;
 
 namespace FibonacciSequence
 {
@@ -17,19 +18,19 @@ namespace FibonacciSequence
             Console.WriteLine("[Fibonacci Sequence - Grid Application]");
             Console.WriteLine("---------------------------------------");
 
-            var n = Int32.Parse(Utils.ValueFromConsole("Enter an integer","100"));
-            var k = Int32.Parse(Utils.ValueFromConsole("Enter the number of nums per thread", "5"));
+            var n = BigInt.Parse(Utils.ValueFromConsole("Enter an integer","100"));
+            var k = BigInt.Parse(Utils.ValueFromConsole("Enter the number of nums per thread", "5"));
 
             var num_threads = n / k;
-            for (int i = 0; i < num_threads; i++)
+            for (BigInt i = 0; i < num_threads; i++)
             {
                 if (i == num_threads - 1)
                 {
-                    App.Threads.Add(new FibListing(i * k, n));
+                    App.Threads.Add(new FibListing((BigInt)(i * k), (BigInt)n));
                 }
                 else
                 {
-                    App.Threads.Add(new FibListing(i * k, i * k + k - 1));
+                    App.Threads.Add(new FibListing((BigInt)(i * k), (BigInt)(i * k + k - 1)));
                 }
             }
 
@@ -52,7 +53,7 @@ namespace FibonacciSequence
         {
             FibListing work = thread as FibListing;
             Console.Write("Thread {0} ({1}:{2}): ", thread.Id, work.start, work.end);
-            for (int i = 0; i < work.results.Count; i++)
+            for (var i = 0; i < work.results.Count; i++)
             {
                 Console.Write(work.results[i] + " ");
             }
@@ -68,29 +69,29 @@ namespace FibonacciSequence
     [Serializable]
     class FibListing : GThread
     {
-        public int start, end;
-        public List<int> results = new List<int>();
+        public BigInt start, end;
+        public List<BigInt> results = new List<BigInt>();
 
-        public FibListing(int start, int end)
+        public FibListing(BigInt start, BigInt end)
         {
             this.start = start;
             this.end   = end;
         }
 
-        public bool IsPerfectSquare(int x)
+        public bool IsPerfectSquare(BigInt x)
         {
-            var squ = (int)Math.Sqrt(x);
+            BigInt squ = BigInt.Sqrt(x);
             return (squ * squ == x);
         }
 
-        public bool IsFibonacci(int x)
+        public bool IsFibonacci(BigInt x)
         {
             return IsPerfectSquare(5 * x * x + 4) || IsPerfectSquare(5 * x * x - 4);
         }
 
         public override void Start()
         {
-            for (int i = start; i <= end; i++)
+            for (var i = start; i <= end; i++)
             {
                 if (IsFibonacci(i) == true)
                 {
