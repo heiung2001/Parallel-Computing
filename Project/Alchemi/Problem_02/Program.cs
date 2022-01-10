@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Text;
 using Alchemi.Core;
 using Alchemi.Core.Owner;
+using Swensen;
 
 namespace Problem_02
 {
     class Program : GApplication
     {
         static public GApplication App       = new GApplication();
-        static public List<List<int>> Matrix = new List<List<int>>();
+        static public List<List<BigInt>> Matrix = new List<List<BigInt>>();
         static public DateTime startTime;
 
         static public void PrintMatrix()
@@ -26,6 +27,21 @@ namespace Problem_02
                     tw.WriteLine();
                 }
             }
+        }
+
+        static public List<List<BigInt>> SubMatrix(int start_idx, int end_idx)
+        {
+            List<List<BigInt>> sendMatrix = new List<List<BigInt>>();
+            for (int i = start_idx; i <= end_idx; i++)
+            {
+                List<BigInt> temp = new List<BigInt>();
+                for (int j = 0; j < Matrix[0].Count; j++)
+                {
+                    temp.Add(Matrix[i][j]);
+                }
+                sendMatrix.Add(temp);
+            }
+            return sendMatrix;
         }
 
         [STAThread]
@@ -44,10 +60,10 @@ namespace Problem_02
 
             for (int i = 0; i < m; i++)
             {
-                List<int> temp = new List<int>();
+                List<BigInt> temp = new List<BigInt>();
                 for (int j = 0; j < n; j++)
                 {
-                    temp.Add(rnd.Next(1, 10));
+                    temp.Add((BigInt)rnd.Next(1, 1000));        // random numbers
                 }
                 Matrix.Add(temp);
             }
@@ -58,11 +74,13 @@ namespace Problem_02
             {
                 if (i == clusters - 1)
                 {
-                    App.Threads.Add(new LCMCalculator(Matrix, i * k, m - 1));
+                    var sendMatrix = SubMatrix(i * k, m - 1);
+                    App.Threads.Add(new LCMCalculator(sendMatrix, i * k, m - 1));
                 }
                 else
                 {
-                    App.Threads.Add(new LCMCalculator(Matrix, i * k, i * k + k - 1));
+                    var sendMatrix = SubMatrix(i * k, i * k + k - 1);
+                    App.Threads.Add(new LCMCalculator(sendMatrix, i * k, i * k + k - 1));
                 }
             }
 
@@ -102,19 +120,19 @@ namespace Problem_02
     class LCMCalculator : GThread
     {
         public int start, end;
-        public List<List<int>> Matrix;
-        public List<int> results = new List<int>();
+        public List<List<BigInt>> Matrix;
+        public List<BigInt> results = new List<BigInt>();
 
-        public LCMCalculator(List<List<int>> Matrix, int start, int end)
+        public LCMCalculator(List<List<BigInt>> Matrix, int start, int end)
         {
             this.Matrix = Matrix;
             this.start  = start;
             this.end    = end;
         }
 
-        static public int LCM(int a, int b)
+        static public BigInt LCM(BigInt a, BigInt b)
         {
-            int res = a * b;
+            BigInt res = a * b;
             while (a != 0 && b != 0)
             {
                 if (a > b)
@@ -127,10 +145,10 @@ namespace Problem_02
 
         public override void Start()
         {
-            for (int i = start; i <= end; i++)
+            for (int i = 0; i < Matrix.Count; i++)
             {
-                int lcm = 1;
-                for (int j = 0; j < Matrix[0].Count; j++)
+                BigInt lcm = 1;
+                for (int j = 0; j < Matrix[i].Count; j++)
                 {
                     lcm = LCM(lcm, Matrix[i][j]);
                 }
