@@ -20,7 +20,7 @@ namespace SquareNumbers
             int n, k;
             Console.Write("Enter an integer: ");
             n = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter number of works that each thread need to handle: ");
+            Console.Write("Enter the number of works that each thread need to handle: ");
             k = Int32.Parse(Console.ReadLine());
 
             var clusters = (int)Math.Ceiling((double)n / k);
@@ -36,6 +36,7 @@ namespace SquareNumbers
                 }
             }
 
+            Console.WriteLine("\n<Login the Alchemi Grid>");
             GConnection gconn   = GConnection.FromConsole("localhost", "9000", "user", "user");
             App.ApplicationName = "Square Numbers - Alchemi";
             App.Connection      = gconn;
@@ -45,7 +46,7 @@ namespace SquareNumbers
             App.ApplicationFinish += new GApplicationFinish(App_ApplicationFinish);
 
             startTime = DateTime.Now;
-            Console.WriteLine("Thread started!");
+            Console.WriteLine("<Thread started!>");
             App.Start();
             Console.ReadLine();
         }

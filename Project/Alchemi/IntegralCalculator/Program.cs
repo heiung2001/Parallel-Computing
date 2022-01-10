@@ -30,8 +30,8 @@ namespace IntegralCalculator
             {
                 App.Threads.Add(new IntegralCal(Math.Cos, i*step, (i+1)*step)); // CHANGE function in here!
             }
-            
-            Console.WriteLine("\n<Login the Alchemi Grid>")
+
+            Console.WriteLine("\n<Login the Alchemi Grid>");
             GConnection gconn   = GConnection.FromConsole("locahost", "9000", "user", "user");
             App.ApplicationName = "Integral Approximation - Alchemi";
             App.Connection      = gconn;
@@ -50,8 +50,8 @@ namespace IntegralCalculator
         {
             IntegralCal work = thread as IntegralCal;
             Console.Write("Thread {0} ({1}:{2}): ", thread.Id, work.start, work.end);
-            Sum_res += work.results;
-            Console.Write(work.results + " ");
+            Sum_res += work.result;
+            Console.Write(work.result + " ");
             Console.WriteLine("\n");
         }
 
@@ -66,7 +66,7 @@ namespace IntegralCalculator
     class IntegralCal : GThread
     {
         public double start, end;
-        public double results;
+        public double result;
         public MathFunction Function { get; set; }
 
         public IntegralCal(MathFunction Function, double start, double end)
@@ -78,16 +78,19 @@ namespace IntegralCalculator
 
         public override void Start()
         {
-            int m  = 1000;
-            var dx = (end-start)/m;
-            double x = start, y, sum = 0;
+            const int m  = 1000;
+            double dx    = (end - start) / m;
+            double x     = start;
+            double sum   = 0;
+            double y     = 0;
+            
             for (int i = 1; i <= m; i++)
             {
                 y    = Function(x);
                 sum += y * dx;
                 x   += dx;
             }
-            results = sum;
+            result = sum;
         }
     }
 }
