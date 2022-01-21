@@ -2,7 +2,7 @@
 There are 3 parts in this class.
 
 ## Part 1: OpenMP
-In this part, I used C/C++ with the libary called "omp.h"(I think it is inside the STL so you dont need to install it). I learned how to design parallel algorithms and applied it to some simple problems like pi calculation, fibonacci, matrix multiplication, ...
+In this part, I used C/C++ with the libary called "omp.h". I learned how to design parallel algorithms and applied it to some simple problems like pi calculation, fibonacci, matrix multiplication, ...
 
 ## Part 2: Grid Computing - Alchemi
 My lecturer taught me to create a grid using Alchemi - a middleware base on dotnet framework and of course, you can only run it on Windows. Although it is quite outdated, but I think I've had some base knowledge about grid (and maybe cloud computing).
