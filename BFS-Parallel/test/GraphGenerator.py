@@ -32,7 +32,7 @@ def generate_graph(n, d, p):
 
 
 if __name__ == "__main__":
-    n_nodes  = 10
+    n_nodes  = 1000000
     n_degree = 4
     p_edges  = 0.3
 
@@ -42,9 +42,12 @@ if __name__ == "__main__":
     print("Creating file...")
     file_name = "graph_" + str(n_nodes) + "_nodes.txt"
 
+    num_edges = 0
     with open(file_name, "w") as f:
         for edge in edges:
             pair = str(edge[0]) + " " + str(edge[1]) + "\n"
             f.write(pair)
+            num_edges += 1
     
+    print(num_edges)
     print("\tFile created.")
