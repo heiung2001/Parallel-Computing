@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using Alchemi.Core;
+using Alchemi.Core.Owner;
+
+namespace FibonacciSequence
+{
+    internal class Program
+    {
+
+        [STAThread]
+        static void Main(string[] args)
+        {
+            Console.WriteLine("[Fibonacci Sequence - Grid Application]");
+            Console.WriteLine("---------------------------------------");
+            int n;
+            Console.Write("Enter an integer: ");
+            n = Int32.Parse(Console.ReadLine());
+
+        }
+    }
+}

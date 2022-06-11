@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Alchemi.Core;
+using Alchemi.Core.Owner;
+
+namespace IntegralCalculator
+{
+    class Program
+    {
+        static public GApplication App = new GApplication();
+        static public DateTime startTime;
+        
+
+        [STAThread]
+        static public void Main(string[] args)
+        {
+
+        }
+    }
+
+    [Serializable]
+    class IntegralCal : GThread
+    {
+        public int start, end;
+        public List<double> results = new List<double>();
+
+        public IntegralCal(int start, int end)
+        {
+            this.start = start;
+            this.end = end;
+        }
+
+        public override void Start()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
