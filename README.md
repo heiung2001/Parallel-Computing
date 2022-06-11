@@ -16,6 +16,7 @@ In this project I was following the paper [A work-efficient parallel breadth-fir
 (or how to cope with the nondeterminism of reducers)
 ](https://dspace.mit.edu/bitstream/handle/1721.1/100925/Leiserson_A%20work-efficient.pdf?sequence=1&isAllowed=y) and with the help in coding of this [repository](https://github.com/nducthang/BFSParallel).
 
-Not as expected, the performance in my implementation is just slightly improved.
-
-![alt text](https://github.com/heiung2001/Parallel-Computing-With-OpenMP-And-Alchemi/)
+I randomly generated a graph dataset with 1 million vertices and 1,811,697 edges. Not as expected, the performance in my implementation is just slightly improved.
+<p align="center">
+  <img src="BFS-Parallel/result/bench.PNG" width=400>
+</p>
